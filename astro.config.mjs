@@ -11,6 +11,10 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), react()],
   output: "static",
 
+  image: {
+    domains: ["parkingmd.com"],
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },
