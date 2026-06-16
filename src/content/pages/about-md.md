@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/BasicLayout.astro
+layout: ../../layouts/BasicLayout.astro
 title: About Us (Markdown)
 description: Learn about Mainline, our team, our mission, and our investors.
 ---

@@ -98,4 +98,11 @@ const whyGuides = defineCollection({
   }),
 });
 
-export const collections = { blog, taxCreditHero, howItWorks, trustedByThousands, guidesHero, whyGuides };
+// ── Pages ────────────────────────────────────────────────────────────────────
+const pages = defineCollection({
+  loader: glob({ base: "./src/content/pages", pattern: "**/*.{md,mdx}" }),
+  schema: z.any().optional(),
+});
+
+export const collections = { blog, taxCreditHero, howItWorks, trustedByThousands, guidesHero, whyGuides, pages };
+
