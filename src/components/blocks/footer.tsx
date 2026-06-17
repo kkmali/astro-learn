@@ -1,23 +1,15 @@
 import { ArrowUpRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { GITHUB_URL } from "@/consts";
+import siteConfig from "@/config/site.json";
+import menuConfig from "@/config/menu.json";
+import socialConfig from "@/config/social.json";
 
 export function Footer() {
-  const navigation = [
-    { name: "Product", href: "/#feature-modern-teams" },
-    { name: "About Us", href: "/about" },
-    { name: "Pricing", href: "/pricing" },
-    { name: "FAQ", href: "/faq" },
-    { name: "Contact", href: "/contact" },
-  ];
-
-  const social = [
-    { name: "Xwitter", href: "https://x.com/ausrobdev" },
-    { name: "LinkedIn", href: "#" },
-  ];
-
-  const legal = [{ name: "Privacy Policy", href: "/privacy" }];
+  const { site, params, navigation_buttons } = siteConfig;
+  const navigation = menuConfig.footer_menu;
+  const social = socialConfig.main;
+  const legal = menuConfig.footer_quick_links;
 
   return (
     <footer className="flex flex-col items-center gap-14 pt-28 lg:pt-32">
@@ -26,12 +18,11 @@ export function Footer() {
           Start your free trial today
         </h2>
         <p className="text-muted-foreground mx-auto max-w-xl leading-snug text-balance">
-          Mainline is the fit-for-purpose tool for planning and building modern
-          software products.
+          {params.footer_description}
         </p>
         <div>
           <Button size="lg" className="mt-4" asChild>
-            <a href={GITHUB_URL}>Get template</a>
+            <a href={navigation_buttons.dashboard.link}>{navigation_buttons.dashboard.label}</a>
           </Button>
         </div>
       </div>
@@ -41,7 +32,7 @@ export function Footer() {
           {navigation.map((item) => (
             <li key={item.name}>
               <a
-                href={item.href}
+                href={item.url}
                 className="font-medium transition-opacity hover:opacity-75"
               >
                 {item.name}
@@ -51,7 +42,7 @@ export function Footer() {
           {social.map((item) => (
             <li key={item.name}>
               <a
-                href={item.href}
+                href={item.link}
                 className="flex items-center gap-0.5 font-medium transition-opacity hover:opacity-75"
               >
                 {item.name} <ArrowUpRight className="size-4" />
@@ -63,7 +54,7 @@ export function Footer() {
           {legal.map((item) => (
             <li key={item.name}>
               <a
-                href={item.href}
+                href={item.url}
                 className="text-muted-foreground text-sm transition-opacity hover:opacity-75"
               >
                 {item.name}
@@ -72,6 +63,7 @@ export function Footer() {
           ))}
         </ul>
       </nav>
+
 
       <div className="text-primary mt-10 w-full md:mt-14 lg:mt-20">
         <svg

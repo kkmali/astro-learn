@@ -12,32 +12,17 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { GITHUB_URL } from "@/consts";
 import { cn } from "@/lib/utils";
+import siteConfig from "@/config/site.json";
+import menuConfig from "@/config/menu.json";
 
-const ITEMS = [
-  {
-    label: "Features",
-    href: "#features",
-    dropdownItems: [
-      {
-        title: "Modern product teams",
-        href: "/#feature-modern-teams",
-        description:
-          "Mainline is built on the habits that make the best product teams successful",
-      },
-      {
-        title: "Resource Allocation",
-        href: "/#resource-allocation",
-        description: "Mainline your resource allocation and execution",
-      },
-    ],
-  },
-  { label: "About Us", href: "/about" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
-];
+const ITEMS = menuConfig.main.map((item) => ({
+  label: item.name,
+  href: item.url,
+  dropdownItems: item.dropdownItems,
+}));
+
+const { site, navigation_buttons } = siteConfig;
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -58,10 +43,10 @@ export const Navbar = () => {
       <div className="flex items-center justify-between px-6 py-3">
         <a href="/" className="flex shrink-0 items-center gap-2">
           <img
-            src="/logo.svg"
-            alt="logo"
-            width={94}
-            height={18}
+            src={site.logo}
+            alt={site.logo_text}
+            width={Number(site.logo_width || 94)}
+            height={Number(site.logo_height || 18)}
             className="dark:invert"
           />
         </a>
@@ -117,17 +102,17 @@ export const Navbar = () => {
         {/* Auth Buttons */}
         <div className="flex items-center gap-2.5">
           <ThemeToggle />
-          <a href="/login" className="max-lg:hidden">
+          <a href={navigation_buttons.login.link} className="max-lg:hidden">
             <Button variant="outline">
-              <span className="relative z-10">Login</span>
+              <span className="relative z-10">{navigation_buttons.login.label}</span>
             </Button>
           </a>
           <a
-            href={GITHUB_URL}
+            href={navigation_buttons.dashboard.link}
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             <Github className="size-4" />
-            <span className="sr-only">GitHub</span>
+            <span className="sr-only">{navigation_buttons.dashboard.label}</span>
           </a>
 
           {/* Hamburger Menu Button (Mobile Only) */}
