@@ -7,7 +7,7 @@ draft: false
 sections:
   - type: hero
     enable: true
-    title: Mainline Astro template
+    title: Mainline Astro template kghcf
     description: sdsfsdfsdfv
     button_primary:
       label: Get template
