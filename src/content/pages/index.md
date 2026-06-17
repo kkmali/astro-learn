@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/DefaultLayout.astro
-title: Mainline
+title: Home
 description: Mainline is bringing modern software to life with AI magic.
 draft: false
 
@@ -8,7 +8,8 @@ sections:
   - type: hero
     enable: true
     title: Mainline Astro template
-    description: Mainline is an open-source website template built with shadcn/ui, Tailwind 4 & Astro 5
+    description: Mainline is an open-source website template built with shadcn/ui,
+      Tailwind 4 & Astro 5
     button_primary:
       label: Get template
       link: https://github.com/shadcnblocks/mainline-astro-template
@@ -29,7 +30,7 @@ sections:
         description: Track scope, velocity, and progress over time.
         icon: lu:ChartNoAxesColumn
     image: /hero.webp
-
+    badge: ""
   - type: logos
     enable: true
     title: Powering the world's best product teams.
@@ -81,12 +82,13 @@ sections:
         width: 90
         height: 28
         href: https://arc.com
-
   - type: features
     enable: true
     badge: MEASURE TWICE. CUT ONCE.
     title: Made for modern product teams
-    description: "Mainline is built on the habits that make the best product teams successful: staying focused, moving quickly, and always aiming for high-quality work."
+    description: "Mainline is built on the habits that make the best product teams
+      successful: staying focused, moving quickly, and always aiming for
+      high-quality work."
     items:
       - title: Purpose-built for product development
         image: /features/triage-card.svg
@@ -94,19 +96,21 @@ sections:
         image: /features/cycle-card.svg
       - title: Build momentum and healthy habits
         image: /features/overview-card.svg
-
   - type: resource_allocation
     enable: true
     title: Mainline your resource allocation and execution
     topItems:
       - title: Reusable issue templates.
-        description: Draft lightning-fast documents with our Smart Instructions and Templates.
+        description: Draft lightning-fast documents with our Smart Instructions and
+          Templates.
         images:
           - src: /resource-allocation/templates.webp
             alt: Issue template interface
             width: 495
             height: 186
-        className: "flex-1 [&>.title-container]:mb-5 md:[&>.title-container]:mb-8 xl:[&>.image-container]:translate-x-6 [&>.image-container]:translate-x-2"
+        className: flex-1 [&>.title-container]:mb-5 md:[&>.title-container]:mb-8
+          xl:[&>.image-container]:translate-x-6
+          [&>.image-container]:translate-x-2
         fade:
           - ""
       - title: Simplify your stack.
@@ -144,7 +148,10 @@ sections:
             alt: Asana logo
             width: 48
             height: 48
-        className: "flex-1 [&>.title-container]:mb-5 md:[&>.title-container]:mb-8 md:[&>.title-container]:translate-x-2 xl:[&>.title-container]:translate-x-4 [&>.title-container]:translate-x-0"
+        className: flex-1 [&>.title-container]:mb-5 md:[&>.title-container]:mb-8
+          md:[&>.title-container]:translate-x-2
+          xl:[&>.title-container]:translate-x-4
+          [&>.title-container]:translate-x-0
         fade: []
     bottomItems:
       - title: Graveyard it.
@@ -154,7 +161,9 @@ sections:
             alt: Graveyard interface
             width: 305
             height: 280
-        className: "[&>.title-container]:mb-5 md:[&>.title-container]:mb-8 xl:[&>.image-container]:translate-x-6 [&>.image-container]:translate-x-2"
+        className: "[&>.title-container]:mb-5 md:[&>.title-container]:mb-8
+          xl:[&>.image-container]:translate-x-6
+          [&>.image-container]:translate-x-2"
         fade:
           - bottom
       - title: Task discussions.
@@ -164,7 +173,9 @@ sections:
             alt: Task discussions interface
             width: 320
             height: 103
-        className: "justify-normal [&>.title-container]:mb-5 md:[&>.title-container]:mb-0 [&>.image-container]:flex-1 md:[&>.image-container]:place-items-center md:[&>.image-container]:-translate-y-3"
+        className: justify-normal [&>.title-container]:mb-5 md:[&>.title-container]:mb-0
+          [&>.image-container]:flex-1 md:[&>.image-container]:place-items-center
+          md:[&>.image-container]:-translate-y-3
         fade:
           - ""
       - title: Notifications.
@@ -174,67 +185,70 @@ sections:
             alt: Notifications interface
             width: 305
             height: 280
-        className: "[&>.title-container]:mb-5 md:[&>.title-container]:mb-8 xl:[&>.image-container]:translate-x-6 [&>.image-container]:translate-x-2"
+        className: "[&>.title-container]:mb-5 md:[&>.title-container]:mb-8
+          xl:[&>.image-container]:translate-x-6
+          [&>.image-container]:translate-x-2"
         fade:
           - bottom
-
   - type: testimonials
     enable: true
     title: Trusted by product builders
-    description: "Mainline is built on the habits that make the best product teams successful: staying focused, moving quickly, and always aiming for high-quality work."
+    description: "Mainline is built on the habits that make the best product teams
+      successful: staying focused, moving quickly, and always aiming for
+      high-quality work."
     button_primary:
       label: Read our Customer Stories
       link: "#"
     items:
-      - quote: "We're misusing Mainline as a CRM and it still works!"
+      - quote: We're misusing Mainline as a CRM and it still works!
         author: Amy Chase
         role: PM
         company: Mercury Finance
         image: /testimonials/amy-chase.webp
-      - quote: "I was able to replace 80% of my team with Mainline bots."
+      - quote: I was able to replace 80% of my team with Mainline bots.
         author: Jonas Kotara
         role: Lead Engineer
         company: Mercury Finance
         image: /testimonials/jonas-kotara.webp
-      - quote: "Founder Mode is hard enough without having a really nice PM app."
+      - quote: Founder Mode is hard enough without having a really nice PM app.
         author: Kevin Yam
         role: Founder
         company: Mercury Finance
         image: /testimonials/kevin-yam.webp
-      - quote: "I can use the tool as a substitute from my PM."
+      - quote: I can use the tool as a substitute from my PM.
         author: Kundo Marta
         role: Founder
         company: Mercury Finance
         image: /testimonials/kundo-marta.webp
-      - quote: "We're misusing Mainline as a CRM and it still works!"
+      - quote: We're misusing Mainline as a CRM and it still works!
         author: Amy Chase
         role: PM
         company: Mercury Finance
         image: /testimonials/amy-chase.webp
-      - quote: "I was able to replace 80% of my team with Mainline bots."
+      - quote: I was able to replace 80% of my team with Mainline bots.
         author: Jonas Kotara
         role: Lead Engineer
         company: Mercury Finance
         image: /testimonials/jonas-kotara.webp
-      - quote: "Founder Mode is hard enough without having a really nice PM app."
+      - quote: Founder Mode is hard enough without having a really nice PM app.
         author: Kevin Yam
         role: Founder
         company: Mercury Finance
         image: /testimonials/kevin-yam.webp
-      - quote: "I can use the tool as a substitute from my PM."
+      - quote: I can use the tool as a substitute from my PM.
         author: Kundo Marta
         role: Founder
         company: Mercury Finance
         image: /testimonials/kundo-marta.webp
-
   - type: pricing
     enable: true
     title: Pricing
-    description: Use Mainline for free with your whole team. Upgrade to enable unlimited issues, enhanced security controls, and additional features.
+    description: Use Mainline for free with your whole team. Upgrade to enable
+      unlimited issues, enhanced security controls, and additional features.
     plans:
       - name: Free
-        monthlyPrice: "$0"
-        yearlyPrice: "$0"
+        monthlyPrice: $0
+        yearlyPrice: $0
         description: Free for everyone
         features:
           - Unlimited members
@@ -242,8 +256,8 @@ sections:
           - 500 issues
           - Slack and Github integrations
       - name: Startup
-        monthlyPrice: "$8"
-        yearlyPrice: "$6"
+        monthlyPrice: $8
+        yearlyPrice: $6
         features:
           - All free plan features and...
           - Mainline AI
@@ -252,38 +266,46 @@ sections:
           - Mainline Insights
           - Admin roles
       - name: Enterprise
-        monthlyPrice: "$8"
-        yearlyPrice: "$6"
+        monthlyPrice: $8
+        yearlyPrice: $6
         features:
           - All free plan features and...
           - Mainline AI
           - Supermainline AGI
           - Free daily catered lunch
           - random HIPPA audits
-
   - type: faq
     enable: true
     title: Got Questions?
-    description: 'If you can''t find what you''re looking for, <a href="/contact" class="underline underline-offset-4">get in touch</a>.'
+    description: If you can't find what you're looking for, <a href="/contact"
+      class="underline underline-offset-4">get in touch</a>.
     categories:
       - title: Support
         questions:
-          - question: "How do I update my account without breaking my laptop?"
-            answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos."
-          - question: "Is support free, or do I need to Google everything?"
-            answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos."
-          - question: "Are you going to be subsumed by AI?"
-            answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos."
+          - question: How do I update my account without breaking my laptop?
+            answer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+              voluptates deserunt officia temporibus dignissimos.
+          - question: Is support free, or do I need to Google everything?
+            answer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+              voluptates deserunt officia temporibus dignissimos.
+          - question: Are you going to be subsumed by AI?
+            answer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+              voluptates deserunt officia temporibus dignissimos.
       - title: Your account
         questions:
-          - question: "Is support free, or do I need to Google everything?"
-            answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos."
-          - question: "Are you going to be subsumed by AI?"
-            answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos."
+          - question: Is support free, or do I need to Google everything?
+            answer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+              voluptates deserunt officia temporibus dignissimos.
+          - question: Are you going to be subsumed by AI?
+            answer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+              voluptates deserunt officia temporibus dignissimos.
       - title: Other questions
         questions:
-          - question: "Is support free, or do I need to Google everything?"
-            answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos."
-          - question: "Are you going to be subsumed by AI?"
-            answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos."
+          - question: Is support free, or do I need to Google everything?
+            answer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+              voluptates deserunt officia temporibus dignissimos.
+          - question: Are you going to be subsumed by AI?
+            answer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+              voluptates deserunt officia temporibus dignissimos.
 ---
+​
