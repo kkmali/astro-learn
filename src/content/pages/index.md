@@ -8,8 +8,7 @@ sections:
   - type: hero
     enable: true
     title: Mainline Astro template
-    description: Mainline is an open-source website template built with shadcn/ui,
-      Tailwind 4 & Astro 5
+    description: sdsfsdfsdfv
     button_primary:
       label: Get template
       link: https://github.com/shadcnblocks/mainline-astro-template
