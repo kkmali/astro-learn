@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 
-const categories = [
+const defaultCategories = [
   {
     title: "Support",
     questions: [
@@ -63,11 +63,19 @@ export const FAQ = ({
   headerTag = "h2",
   className,
   className2,
+  title = "Got Questions?",
+  description = 'If you can\'t find what you\'re looking for, <a href="/contact" class="underline underline-offset-4">get in touch</a>.',
+  categories = defaultCategories,
 }: {
   headerTag?: "h1" | "h2";
   className?: string;
   className2?: string;
+  title?: string;
+  description?: string;
+  categories?: any[];
 }) => {
+  const activeCategories = categories || defaultCategories;
+
   return (
     <section className={cn("py-28 lg:py-32", className)}>
       <div className="container max-w-5xl">
@@ -75,24 +83,21 @@ export const FAQ = ({
           <div className="space-y-4">
             {headerTag === "h1" ? (
               <h1 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-                Got Questions?
+                {title}
               </h1>
             ) : (
               <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-                Got Questions?
+                {title}
               </h2>
             )}
-            <p className="text-muted-foreground max-w-md leading-snug lg:mx-auto">
-              If you can't find what you're looking for,{" "}
-              <a href="/contact" className="underline underline-offset-4">
-                get in touch
-              </a>
-              .
-            </p>
+            <p
+              className="text-muted-foreground max-w-md leading-snug lg:mx-auto"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
           </div>
 
           <div className="grid gap-6 text-start">
-            {categories.map((category, categoryIndex) => (
+            {activeCategories.map((category, categoryIndex) => (
               <div key={category.title} className="">
                 <h3 className="text-muted-foreground border-b py-4">
                   {category.title}

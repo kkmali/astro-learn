@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 
-const items = [
+const defaultTestimonials = [
   {
     quote: "We're misusing Mainline as a CRM and it still works!",
     author: "Amy Chase",
@@ -75,26 +75,40 @@ const items = [
 export const Testimonials = ({
   className,
   dashedLineClassName,
+  title = "Trusted by product builders",
+  description = "Mainline is built on the habits that make the best product teams successful: staying focused, moving quickly, and always aiming for high-quality work.",
+  button_primary = { label: "Read our Customer Stories", link: "#" },
+  items = defaultTestimonials,
 }: {
   className?: string;
   dashedLineClassName?: string;
+  title?: string;
+  description?: string;
+  button_primary?: { label: string; link: string };
+  items?: any[];
 }) => {
+  const activeTestimonials = items || defaultTestimonials;
+  const buttonLabel = button_primary?.label || "Read our Customer Stories";
+  const buttonLink = button_primary?.link || "#";
+
   return (
     <>
       <section className={cn("overflow-hidden py-28 lg:py-32", className)}>
         <div className="container">
           <div className="space-y-4">
             <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-              Trusted by product builders
+              {title}
             </h2>
             <p className="text-muted-foreground max-w-md leading-snug">
-              Mainline is built on the habits that make the best product teams
-              successful: staying focused, moving quickly, and always aiming for
-              high-quality work.
+              {description}
             </p>
-            <Button variant="outline" className="shadow-md">
-              Read our Customer Stories <ArrowRight className="size-4" />
-            </Button>
+            {button_primary && (
+              <Button variant="outline" className="shadow-md" asChild>
+                <a href={buttonLink}>
+                  {buttonLabel} <ArrowRight className="size-4" />
+                </a>
+              </Button>
+            )}
           </div>
 
           <div className="relative mt-8 -mr-[max(3rem,calc((100vw-80rem)/2+3rem))] md:mt-12 lg:mt-20">
@@ -106,7 +120,7 @@ export const Testimonials = ({
               className="w-full"
             >
               <CarouselContent className="">
-                {items.map((testimonial, index) => (
+                {activeTestimonials.map((testimonial, index) => (
                   <CarouselItem
                     key={index}
                     className="xl:basis-1/3.5 grow basis-4/5 sm:basis-3/5 md:basis-2/5 lg:basis-[28%] 2xl:basis-[24%]"

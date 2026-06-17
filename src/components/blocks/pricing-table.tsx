@@ -21,7 +21,7 @@ interface FeatureSection {
   }[];
 }
 
-const pricingPlans = [
+const defaultPricingPlans = [
   {
     name: "Free",
     button: {
@@ -45,7 +45,7 @@ const pricingPlans = [
   },
 ];
 
-const comparisonFeatures: FeatureSection[] = [
+const defaultComparisonFeatures: FeatureSection[] = [
   {
     category: "Usage",
     features: [
@@ -160,26 +160,37 @@ const renderFeatureValue = (value: true | false | null | string) => {
   );
 };
 
-export const PricingTable = () => {
+export const PricingTable = ({
+  pricingPlans = defaultPricingPlans,
+  comparisonFeatures = defaultComparisonFeatures,
+}: {
+  pricingPlans?: any[];
+  comparisonFeatures?: FeatureSection[];
+}) => {
   const [selectedPlan, setSelectedPlan] = useState(1); // Default to Startup plan
+  const activePlans = pricingPlans || defaultPricingPlans;
+  const activeFeatures = comparisonFeatures || defaultComparisonFeatures;
 
   return (
     <section className="pb-28 lg:py-32">
       <div className="container">
         <PlanHeaders
+          pricingPlans={activePlans}
           selectedPlan={selectedPlan}
           onPlanChange={setSelectedPlan}
         />
-        <FeatureSections selectedPlan={selectedPlan} />
+        <FeatureSections comparisonFeatures={activeFeatures} selectedPlan={selectedPlan} />
       </div>
     </section>
   );
 };
 
 const PlanHeaders = ({
+  pricingPlans,
   selectedPlan,
   onPlanChange,
 }: {
+  pricingPlans: any[];
   selectedPlan: number;
   onPlanChange: (index: number) => void;
 }) => {
@@ -188,7 +199,7 @@ const PlanHeaders = ({
   return (
     <div className="">
       {/* Mobile View */}
-      <div className="md:hidden">
+      <div className="md:hidden text-start">
         <Collapsible open={isOpen} onOpenChange={setIsOpen} className="">
           <div className="flex items-center justify-between border-b py-4">
             <CollapsibleTrigger className="flex items-center gap-2">
@@ -228,7 +239,7 @@ const PlanHeaders = ({
       </div>
 
       {/* Desktop View */}
-      <div className="grid grid-cols-4 gap-4 max-md:hidden">
+      <div className="grid grid-cols-4 gap-4 max-md:hidden text-start">
         <div className="col-span-1 max-md:hidden"></div>
 
         {pricingPlans.map((plan, index) => (
@@ -244,11 +255,17 @@ const PlanHeaders = ({
   );
 };
 
-const FeatureSections = ({ selectedPlan }: { selectedPlan: number }) => (
+const FeatureSections = ({
+  comparisonFeatures,
+  selectedPlan,
+}: {
+  comparisonFeatures: FeatureSection[];
+  selectedPlan: number;
+}) => (
   <>
     {comparisonFeatures.map((section, sectionIndex) => (
       <div key={sectionIndex} className="">
-        <div className="border-primary/40 border-b py-4">
+        <div className="border-primary/40 border-b py-4 text-start">
           <h3 className="text-lg font-semibold">{section.category}</h3>
         </div>
         {section.features.map((feature, featureIndex) => (
@@ -256,7 +273,7 @@ const FeatureSections = ({ selectedPlan }: { selectedPlan: number }) => (
             key={featureIndex}
             className="text-foreground grid grid-cols-2 font-medium max-md:border-b md:grid-cols-4"
           >
-            <span className="inline-flex items-center py-4">
+            <span className="inline-flex items-center py-4 text-start">
               {feature.name}
             </span>
             {/* Mobile View - Only Selected Plan */}
@@ -288,3 +305,4 @@ const FeatureSections = ({ selectedPlan }: { selectedPlan: number }) => (
     ))}
   </>
 );
+

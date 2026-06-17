@@ -4,7 +4,7 @@ import { DashedLine } from "../dashed-line";
 
 import { Card, CardContent } from "@/components/ui/card";
 
-const items = [
+const defaultItems = [
   {
     title: "Purpose-built for product development",
     image: "/features/triage-card.svg",
@@ -19,34 +19,46 @@ const items = [
   },
 ];
 
-export const Features = () => {
+export const Features = ({
+  badge = "MEASURE TWICE. CUT ONCE.",
+  title = "Made for modern product teams",
+  description = "Mainline is built on the habits that make the best product teams successful: staying focused, moving quickly, and always aiming for high-quality work.",
+  items = defaultItems,
+}: {
+  badge?: string;
+  title?: string;
+  description?: string;
+  items?: { title: string; image: string }[];
+}) => {
+  const activeItems = items || defaultItems;
+
   return (
     <section id="feature-modern-teams" className="pb-28 lg:pb-32">
       <div className="container">
         {/* Top dashed line with text */}
         <div className="relative flex items-center justify-center">
           <DashedLine className="text-muted-foreground" />
-          <span className="bg-muted text-muted-foreground absolute px-3 font-mono text-sm font-medium tracking-wide max-md:hidden">
-            MEASURE TWICE. CUT ONCE.
-          </span>
+          {badge && (
+            <span className="bg-muted text-muted-foreground absolute px-3 font-mono text-sm font-medium tracking-wide max-md:hidden">
+              {badge}
+            </span>
+          )}
         </div>
 
         {/* Content */}
         <div className="mx-auto mt-10 grid max-w-4xl items-center gap-3 md:gap-0 lg:mt-24 lg:grid-cols-2">
           <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-            Made for modern product teams
+            {title}
           </h2>
           <p className="text-muted-foreground leading-snug">
-            Mainline is built on the habits that make the best product teams
-            successful: staying focused, moving quickly, and always aiming for
-            high-quality work.
+            {description}
           </p>
         </div>
 
         {/* Features Card */}
         <Card className="mt-8 rounded-3xl md:mt-12 lg:mt-20">
           <CardContent className="flex p-0 max-md:flex-col">
-            {items.map((item, i) => (
+            {activeItems.map((item, i) => (
               <div key={i} className="flex flex-1 max-md:flex-col">
                 <div className="flex-1 p-4 pe-0! md:p-6">
                   <div className="relative aspect-[1.28/1] overflow-hidden">
@@ -72,12 +84,12 @@ export const Features = () => {
                     </div>
                   </a>
                 </div>
-                {i < items.length - 1 && (
+                {i < activeItems.length - 1 && (
                   <div className="relative hidden md:block">
                     <DashedLine orientation="vertical" />
                   </div>
                 )}
-                {i < items.length - 1 && (
+                {i < activeItems.length - 1 && (
                   <div className="relative block md:hidden">
                     <DashedLine orientation="horizontal" />
                   </div>

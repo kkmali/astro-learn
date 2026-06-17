@@ -1,6 +1,6 @@
 import { DashedLine } from "@/components/dashed-line";
 
-const stats = [
+const defaultStats = [
   {
     value: "$150M",
     label: "Raised",
@@ -19,34 +19,48 @@ const stats = [
   },
 ];
 
-export function AboutHero() {
+export function AboutHero({
+  title = "Democratising quality software",
+  subtitle = "Mainline is bringing modern software to life with AI magic.",
+  description = [
+    "At Mainline, we are dedicated to transforming the way teams plan, execute, and deliver projects. Our mission is to provide our customers with an unbeatable edge over delays, inefficiencies, and disorganisation through actionable insights and seamless collaboration. We’ll stop at nothing to give you the tools you need to get every project across the finish line.",
+    "We’re customer-obsessed — investing the time to understand every aspect of your workflow so that we can help you operate better than ever before. We’re all in this together because your success is our success. In our history as a company, we’ve never lost a customer, because when your projects succeed, so do we."
+  ],
+  stats = defaultStats,
+}: {
+  title?: string;
+  subtitle?: string;
+  description?: string | string[];
+  stats?: Array<{ value: string; label: string }>;
+}) {
+  const descriptions = Array.isArray(description)
+    ? description
+    : description
+      ? [description]
+      : [];
+
   return (
     <section className="">
       <div className="container flex max-w-5xl flex-col justify-between gap-8 md:gap-20 lg:flex-row lg:items-center lg:gap-24 xl:gap-24">
         <div className="flex-[1.5]">
           <h1 className="text-3xl tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-            Democratising quality software
+            {title}
           </h1>
 
           <p className="text-muted-foreground mt-5 text-2xl md:text-3xl lg:text-4xl">
-            Mainline is bringing modern software to life with AI magic.
+            {subtitle}
           </p>
 
-          <p className="text-muted-foreground mt-8 hidden max-w-lg space-y-6 text-lg text-balance md:block lg:mt-12">
-            At Mainline, we are dedicated to transforming the way teams plan,
-            execute, and deliver projects. Our mission is to provide our
-            customers with an unbeatable edge over delays, inefficiencies, and
-            disorganisation through actionable insights and seamless
-            collaboration. We’ll stop at nothing to give you the tools you need
-            to get every project across the finish line.
-            <br />
-            <br />
-            We’re customer-obsessed — investing the time to understand every
-            aspect of your workflow so that we can help you operate better than
-            ever before. We’re all in this together because your success is our
-            success. In our history as a company, we’ve never lost a customer,
-            because when your projects succeed, so do we.
-          </p>
+          {descriptions.length > 0 && (
+            <p className="text-muted-foreground mt-8 hidden max-w-lg text-lg text-balance md:block lg:mt-12">
+              {descriptions.map((p, idx) => (
+                <span key={idx}>
+                  {idx > 0 && <><br /><br /></>}
+                  {p}
+                </span>
+              ))}
+            </p>
+          )}
         </div>
 
         <div
@@ -73,3 +87,4 @@ export function AboutHero() {
     </section>
   );
 }
+

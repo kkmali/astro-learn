@@ -2,19 +2,62 @@
 layout: ../../layouts/DefaultLayout.astro
 title: FAQ
 description: Frequently asked questions about Mainline.
----
-import { Background } from '@/components/background';
-import { FAQ } from '@/components/blocks/faq';
-import { Testimonials } from '@/components/blocks/testimonials';
-import { DashedLine } from '@/components/dashed-line';
+draft: false
 
-<Background>
-  <FAQ
-    client:only='react'
-    className="py-28 text-center lg:pt-44 lg:pb-32"
-    className2="max-w-xl lg:grid-cols-1"
-    headerTag="h1"
-  />
-  <DashedLine className="mx-auto max-w-xl" />
-  <Testimonials dashedLineClassName="hidden" client:only='react' />
-</Background>
+sections:
+  - type: faq
+    enable: true
+    title: Got Questions?
+    description: 'If you can''t find what you''re looking for, <a href="/contact" class="underline underline-offset-4">get in touch</a>.'
+    categories:
+      - title: Support
+        questions:
+          - question: "How do I update my account without breaking my laptop?"
+            answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos."
+          - question: "Is support free, or do I need to Google everything?"
+            answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos."
+          - question: "Are you going to be subsumed by AI?"
+            answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos."
+      - title: Your account
+        questions:
+          - question: "Is support free, or do I need to Google everything?"
+            answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos."
+          - question: "Are you going to be subsumed by AI?"
+            answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos."
+      - title: Other questions
+        questions:
+          - question: "Is support free, or do I need to Google everything?"
+            answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos."
+          - question: "Are you going to be subsumed by AI?"
+            answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos."
+
+  - type: testimonials
+    enable: true
+    title: Trusted by product builders
+    description: "Mainline is built on the habits that make the best product teams successful: staying focused, moving quickly, and always aiming for high-quality work."
+    dashedLineClassName: hidden
+    button_primary:
+      label: Read our Customer Stories
+      link: "#"
+    items:
+      - quote: "We're misusing Mainline as a CRM and it still works!"
+        author: Amy Chase
+        role: PM
+        company: Mercury Finance
+        image: /testimonials/amy-chase.webp
+      - quote: "I was able to replace 80% of my team with Mainline bots."
+        author: Jonas Kotara
+        role: Lead Engineer
+        company: Mercury Finance
+        image: /testimonials/jonas-kotara.webp
+      - quote: "Founder Mode is hard enough without having a really nice PM app."
+        author: Kevin Yam
+        role: Founder
+        company: Mercury Finance
+        image: /testimonials/kevin-yam.webp
+      - quote: "I can use the tool as a substitute from my PM."
+        author: Kundo Marta
+        role: Founder
+        company: Mercury Finance
+        image: /testimonials/kundo-marta.webp
+---

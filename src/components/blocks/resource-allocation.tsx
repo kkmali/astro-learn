@@ -2,7 +2,7 @@ import { DashedLine } from "../dashed-line";
 
 import { cn } from "@/lib/utils";
 
-const topItems = [
+const defaultTopItems = [
   {
     title: "Reusable issue templates.",
     description:
@@ -58,7 +58,7 @@ const topItems = [
   },
 ];
 
-const bottomItems = [
+const defaultBottomItems = [
   {
     title: "Graveyard it.",
     description:
@@ -109,7 +109,18 @@ const bottomItems = [
   },
 ];
 
-export const ResourceAllocation = () => {
+export const ResourceAllocation = ({
+  title = "Mainline your resource allocation and execution",
+  topItems = defaultTopItems,
+  bottomItems = defaultBottomItems,
+}: {
+  title?: string;
+  topItems?: any[];
+  bottomItems?: any[];
+}) => {
+  const activeTop = topItems || defaultTopItems;
+  const activeBottom = bottomItems || defaultBottomItems;
+
   return (
     <section
       id="resource-allocation"
@@ -117,7 +128,7 @@ export const ResourceAllocation = () => {
     >
       <div className="">
         <h2 className="container text-center text-3xl tracking-tight text-balance sm:text-4xl md:text-5xl lg:text-6xl">
-          Mainline your resource allocation and execution
+          {title}
         </h2>
 
         <div className="mt-8 md:mt-12 lg:mt-20">
@@ -128,8 +139,8 @@ export const ResourceAllocation = () => {
 
           {/* Top Features Grid - 2 items */}
           <div className="relative container flex max-md:flex-col">
-            {topItems.map((item, i) => (
-              <Item key={i} item={item} isLast={i === topItems.length - 1} />
+            {activeTop.map((item, i) => (
+              <Item key={i} item={item} isLast={i === activeTop.length - 1} />
             ))}
           </div>
           <DashedLine
@@ -139,11 +150,11 @@ export const ResourceAllocation = () => {
 
           {/* Bottom Features Grid - 3 items */}
           <div className="relative container grid max-w-7xl md:grid-cols-3">
-            {bottomItems.map((item, i) => (
+            {activeBottom.map((item, i) => (
               <Item
                 key={i}
                 item={item}
-                isLast={i === bottomItems.length - 1}
+                isLast={i === activeBottom.length - 1}
                 className="md:pb-0"
               />
             ))}

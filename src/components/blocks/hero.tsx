@@ -1,56 +1,72 @@
 import {
   ArrowRight,
-  Blend,
-  ChartNoAxesColumn,
-  CircleDot,
-  Diamond,
 } from "lucide-react";
 
 import { DashedLine } from "@/components/dashed-line";
 import { Button } from "@/components/ui/button";
 import { GITHUB_URL } from "@/consts";
+import { Icon } from "@/components/Icon";
 
-const features = [
+const defaultFeatures = [
   {
     title: "Tailored workflows",
     description: "Track progress across custom issue flows for your team.",
-    icon: CircleDot,
+    icon: "CircleDot",
   },
   {
     title: "Cross-team projects",
     description: "Collaborate across teams and departments.",
-    icon: Blend,
+    icon: "Blend",
   },
   {
     title: "Milestones",
     description: "Break projects down into concrete phases.",
-    icon: Diamond,
+    icon: "Diamond",
   },
   {
     title: "Progress insights",
     description: "Track scope, velocity, and progress over time.",
-    icon: ChartNoAxesColumn,
+    icon: "ChartNoAxesColumn",
   },
 ];
 
-export const Hero = () => {
+export const Hero = ({
+  title = "Mainline Astro template",
+  description = "Mainline is an open-source website template built with shadcn/ui, Tailwind 4 & Astro 5",
+  button_primary = { label: "Get template", link: GITHUB_URL },
+  button_secondary = { label: "Built by shadcnblocks.com", link: "https://shadcnblocks.com" },
+  features = defaultFeatures,
+  image = "/hero.webp",
+}: {
+  title?: string;
+  description?: string;
+  button_primary?: { label: string; link: string };
+  button_secondary?: { label: string; link: string };
+  features?: { title: string; description: string; icon: string }[];
+  image?: string;
+}) => {
+  const primaryLabel = button_primary?.label || "Get template";
+  const primaryLink = button_primary?.link || GITHUB_URL;
+  const secondaryLabel = button_secondary?.label || "Built by shadcnblocks.com";
+  const secondaryLink = button_secondary?.link || "https://shadcnblocks.com";
+  const activeFeatures = features || defaultFeatures;
+
   return (
     <section className="py-28 lg:py-32 lg:pt-44">
       <div className="container flex flex-col justify-between gap-8 md:gap-14 lg:flex-row lg:gap-20">
         {/* Left side - Main content */}
         <div className="flex-1">
           <h1 className="text-foreground max-w-160 text-3xl tracking-tight md:text-4xl lg:text-5xl xl:whitespace-nowrap">
-            Mainline Astro template
+            {title}
           </h1>
 
           <p className="text-muted-foreground text-1xl mt-5 md:text-3xl">
-            Mainline is an open-source website template built with shadcn/ui,
-            Tailwind 4 & Astro 5
+            {description}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4 lg:flex-nowrap">
             <Button asChild>
-              <a href={GITHUB_URL}>Get template</a>
+              <a href={primaryLink}>{primaryLabel}</a>
             </Button>
             <Button
               variant="outline"
@@ -58,10 +74,10 @@ export const Hero = () => {
               asChild
             >
               <a
-                href="https://shadcnblocks.com"
+                href={secondaryLink}
                 className="max-w-56 truncate text-start md:max-w-none"
               >
-                Built by shadcnblocks.com
+                {secondaryLabel}
                 <ArrowRight className="stroke-3" />
               </a>
             </Button>
@@ -78,11 +94,12 @@ export const Hero = () => {
             orientation="horizontal"
             className="absolute top-0 lg:hidden"
           />
-          {features.map((feature) => {
-            const Icon = feature.icon;
+          {activeFeatures.map((feature) => {
             return (
               <div key={feature.title} className="flex gap-2.5 lg:gap-5">
-                <Icon className="text-foreground mt-1 size-4 shrink-0 lg:size-5" />
+                <div className="text-foreground mt-1 shrink-0">
+                  <Icon name={feature.icon} size={20} />
+                </div>
                 <div>
                   <h2 className="font-text text-foreground font-semibold">
                     {feature.title}
@@ -100,7 +117,7 @@ export const Hero = () => {
       <div className="mt-12 max-lg:ml-6 max-lg:h-[550px] max-lg:overflow-hidden md:mt-20 lg:container lg:mt-24">
         <div className="relative h-[793px] w-full">
           <img
-            src="/hero.webp"
+            src={image}
             alt="hero"
             className="w-full rounded-2xl object-cover object-left-top shadow-lg max-lg:rounded-tr-none"
           />
@@ -109,3 +126,4 @@ export const Hero = () => {
     </section>
   );
 };
+

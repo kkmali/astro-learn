@@ -2,10 +2,16 @@
 layout: ../../layouts/DefaultLayout.astro
 title: Sign Up
 description: Create your Mainline account.
----
-import { Background } from '@/components/background';
-import SignupSection from '@/components/blocks/signup-section';
+draft: false
 
-<Background>
-  <SignupSection />
-</Background>
+sections:
+  - type: signup
+    enable: true
+    title: Start your free trial
+    subtitle: Sign up in less than 2 minutes.
+    buttonLabel: Create an account
+    googleButtonLabel: Sign up with Google
+    loginLabel: "Already have an account?"
+    loginLink: /login
+    loginText: Log in
+---

@@ -2,10 +2,16 @@
 layout: ../../layouts/DefaultLayout.astro
 title: Login
 description: Login to your Mainline account.
----
-import { Background } from '@/components/background';
-import LoginSection from '@/components/blocks/login-section';
+draft: false
 
-<Background>
-  <LoginSection />
-</Background>
+sections:
+  - type: login
+    enable: true
+    title: Welcome back
+    subtitle: Please enter your details.
+    buttonLabel: Sign in
+    googleButtonLabel: Sign in with Google
+    signupLabel: "Don't have an account?"
+    signupLink: /signup
+    signupText: Sign up
+---
